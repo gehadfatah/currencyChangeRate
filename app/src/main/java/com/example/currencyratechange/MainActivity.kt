@@ -8,11 +8,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.currencyratechange.data.APIClient
 import com.example.currencyratechange.data.Api
+
 import com.example.currencyratechange.data.datamodel.CurrencyResponse
 import com.example.currencyratechange.data.datamodel.Rates
+import com.example.currencyratechange.data.toListOfRates
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.json.JSONObject
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,7 +23,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     var apiInterface: Api? = null
     private val viewModel: CurrencyViewModel by viewModels()
-    val values : Array<String> = arrayOf("USD", "UAH", "GBD", "EUR", "BIT", "RUB")
+    val values : Array<String> = arrayOf("USD", "AED",  "EUR", "RUB")
     var data = ArrayList<String>()
     var convert_from_spinner: Spinner? =null
     var convert_to_spinner: Spinner? =null
@@ -68,8 +70,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun organizeCurrencyRate() {
         try {
-            val jsonObject: JSONObject =  JSONObject(currencyResponse ?. rates ?. list.toString())
-            //val jsonObject1_message = jsonObject.getJSONObject("")
+          /*  val jsonObject: JSONObject =  JSONObject(currencyResponse ?. rates ?. list.toString())
+
             val map: MutableMap<String, String> = HashMap()
             val iter: Iterator<*> = jsonObject.keys()
             while (iter.hasNext()) {
@@ -77,14 +79,16 @@ class MainActivity : AppCompatActivity() {
                 val value = jsonObject.getString(key)
                 map[key] = value
                 Log.d("keywithvalues", "print    $key   $value")
-            }
+            }*/
+            val result = currencyResponse?.toListOfRates()
+             Toast.makeText(
+          applicationContext,
+          "${result?.size}", Toast.LENGTH_SHORT
+      ).show()
         } catch (e: Exception) {
             Log.d("error", "**   $e")
         }
-       /* Toast.makeText(
-            applicationContext,
-            "${currencyResponse?.rates?.list?.size}", Toast.LENGTH_SHORT
-        ).show()*/
+
     }
 
     private fun showListinSpinner(departmentNoRealmList:ArrayList<Rates>) {

@@ -1,5 +1,7 @@
 package com.example.currencyratechange.data.datamodel
 
+import com.google.gson.JsonObject
+
 data class Rates(
 /*    val AED: Double,
     val USD: Double,
@@ -13,5 +15,5 @@ data class Rates(
     val GBP: Double,
     val HKD: Double*/
 //var list:List<HashMap<String,Double>>
-var list:Object
+var list:JsonObject?
 )
