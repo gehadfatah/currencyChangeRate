@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CurrencyRateChange</string>
+    <string name="oh_snap">Oh Snap!</string>
+    <string name="error">An Error occurred</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
 </resources>
