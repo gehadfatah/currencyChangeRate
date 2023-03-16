@@ -1,4 +1,4 @@
-package com.example.currencyratechange
+package com.example.currencyratechange.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

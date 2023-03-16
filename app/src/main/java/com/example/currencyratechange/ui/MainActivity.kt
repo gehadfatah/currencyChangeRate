@@ -1,4 +1,4 @@
-package com.example.currencyratechange
+package com.example.currencyratechange.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -6,8 +6,9 @@ import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.currencyratechange.R
 import com.example.currencyratechange.data.APIClient
-import com.example.currencyratechange.data.Api
+import com.example.currencyratechange.data.network.Api
 
 import com.example.currencyratechange.data.datamodel.CurrencyResponse
 import com.example.currencyratechange.data.datamodel.Rates
